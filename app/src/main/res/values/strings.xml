@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Lab 4</string>
+    <string name="question_1">Столица Франци Париж?</string>
+    <string name="question_2">Столица Японии Берлин?</string>
+    <string name="question_3">Столица Бразилии Бразилиа?</string>
+    <string name="correct_toast">Correct!</string>
+    <string name="incorrect_toast">Incorrect!</string>
 </resources>
