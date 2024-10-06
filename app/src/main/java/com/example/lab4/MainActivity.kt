@@ -64,7 +64,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         nextButton.setOnClickListener {
-            currentIndex = (currentIndex + 1) % questionBank.size
+            currentIndex = currentIndex + 1
             hintIndex = 0 // Сбросить индекс подсказок при переходе к следующему вопросу
             updateQuestion()
             toggleButtons(true)
@@ -84,8 +84,18 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun updateQuestion() {
-        val question = questionBank[currentIndex]
-        questionTextView.setText(question.textResId)
+        if (currentIndex == questionBank.size){
+            val toast = Toast.makeText(applicationContext, "Количество правильных ответов: "+ counter, Toast.LENGTH_LONG)
+            toast.show()
+            counter = 0
+            currentIndex = 0
+            val question = questionBank[currentIndex]
+            questionTextView.setText(question.textResId)
+        }
+        else{
+            val question = questionBank[currentIndex]
+            questionTextView.setText(question.textResId)
+        }
     }
 
     private fun checkAnswer(userAnswer: Boolean) {
